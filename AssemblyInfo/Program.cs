@@ -71,7 +71,7 @@ namespace AssemblyInfo
                     System.Console.WriteLine ("  " + type.Name);
                 }
 
-                System.Console.WriteLine("\nReferenced Assemblies");
+                System.Console.WriteLine("\nReferenced Assemblies").OrderBy(n => n.Name);
                 var names = asm.GetReferencedAssemblies();
                 foreach (var n in names)
                 {
