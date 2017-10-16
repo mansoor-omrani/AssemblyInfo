@@ -48,7 +48,6 @@ namespace AssemblyInfo
                 System.Console.WriteLine("Version: {0}", x.Version);
                 System.Console.WriteLine("VersionCompatibility: {0}", x.VersionCompatibility);
                 
-                // List the types exported from the assembly
                 System.Console.WriteLine ("\nExported Types");
                 var types = asm.GetExportedTypes();
                 foreach (var type in types)
@@ -63,6 +62,13 @@ namespace AssemblyInfo
                 foreach (var module in modules)
                 {
                     System.Console.WriteLine("  " + module.Name);
+                }
+
+                System.Console.WriteLine("\nReferenced Assemblies");
+                var names = asm.GetReferencedAssemblies();
+                foreach (var n in names)
+                {
+                    System.Console.WriteLine("  " + n.Name);
                 }
             }
             else
