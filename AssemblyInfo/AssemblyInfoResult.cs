@@ -17,10 +17,48 @@ namespace AssemblyInfo
         public string Version { get; set; }
         public string VersionCompatibility { get; set; }
         public string Naming { get; set; }
+        private List<string> exportedTypes;
+        public List<string> ExportedTypes
+        {
+            get
+            {
+                if (exportedTypes == null)
+                    exportedTypes = new List<string>();
+                
+                return exportedTypes;
+            }
+        }
+        private List<string> types;
+        public List<string> Types
+        {
+            get
+            {
+                if (types == null)
+                    types = new List<string>();
 
+                return types;
+            }
+        }
         public string ToJson()
         {
-            return "{}";
+            var _types = (Types.Count > 0)? @"""Types"": [""" + string.Join("\",\"", Types.ToArray()) + "\"],":"";
+            var _exportedTypes = (ExportedTypes.Count > 0) ? @"""ExportedTypes"": [""" + string.Join("\",\"", ExportedTypes.ToArray()) + "\"]," : "";
+
+            return
+$@"
+{{
+    ""CodeBase"": ""{CodeBase}"",
+    ""ContentType"": ""{ContentType}"",
+    ""CultureInfo"": ""{CultureInfo}"",
+    ""CultureName"": ""{CultureName}"",
+    ""FullName"": ""{FullName}"",
+    ""Name"": ""{Name}"",
+    ""Version"": ""{Version}"",
+    ""VersionCompatibility"": ""{VersionCompatibility}"",
+    ""Naming"": ""{Naming}"",
+    {_exportedTypes}
+    {_types}
+}}";
         }
     }
 }
