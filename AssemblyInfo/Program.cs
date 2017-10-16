@@ -13,16 +13,19 @@ namespace AssemblyInfo
                 Assembly asm = null;
                 var name = args[0];
                 var switches = "";
+
                 for (var i = 1; i < args.Length; i++)
                 {
                     switches += args[i].ToLower().Replace('-', ' ').Trim();
                 }
+
                 var showAll = switches.Contains('a');
                 var showModules = switches.Contains('m') || showAll;
                 var showExportedTypes = switches.Contains('e') || showAll;
                 var showTypes = switches.Contains('t') || showAll;
                 var showReferencedAssemblies = switches.Contains('r') || showAll;
                 var showInfo = switches.Contains('i') || string.IsNullOrEmpty(switches) || showAll;
+                var toJson = switches.Contains('j');
 
                 try
                 {
@@ -114,6 +117,7 @@ namespace AssemblyInfo
                 System.Console.WriteLine("\t-e: Display Exported Types");
                 System.Console.WriteLine("\t-t: Display Types");
                 System.Console.WriteLine("\t-r: Display Referenced Assemblies\n");
+                System.Console.WriteLine("\t-j: Display in JSON format\n");
                 System.Console.WriteLine("Arguments can be merged together");
                 System.Console.WriteLine("Example:\nasminfo.exe MyLib.dll -imt");
             }
