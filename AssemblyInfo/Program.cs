@@ -96,7 +96,7 @@ namespace AssemblyInfo
                 if (showReferencedAssemblies)
                 {
                     System.Console.WriteLine("\nReferenced Assemblies");
-                    var referencedAssemblies = asm.GetReferencedAssemblies();
+                    var referencedAssemblies = asm.GetReferencedAssemblies().OrderBy(n => n.Name);
                     foreach (var a in referencedAssemblies)
                     {
                         System.Console.WriteLine("  " + a.Name);
