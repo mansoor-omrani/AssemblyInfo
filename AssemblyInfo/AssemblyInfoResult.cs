@@ -41,8 +41,8 @@ namespace AssemblyInfo
         }
         public string ToJson()
         {
-            var _types = (Types.Count > 0)? @"""Types"": [""" + string.Join("\",\"", Types.ToArray()) + "\"]":"";
-            var _exportedTypes = string.Join(",", ExportedTypes.ToArray());
+            var _types = (Types.Count > 0)? @"""Types"": [""" + string.Join("\",\"", Types.ToArray()) + "\"],":"";
+            var _exportedTypes = (ExportedTypes.Count > 0) ? @"""ExportedTypes"": [""" + string.Join("\",\"", ExportedTypes.ToArray()) + "\"]," : "";
 
             return
 $@"
@@ -56,7 +56,7 @@ $@"
     ""Version"": ""{Version}"",
     ""VersionCompatibility"": ""{VersionCompatibility}"",
     ""Naming"": ""{Naming}"",
-    ""ExportedTypes"": {_exportedTypes}
+    {_exportedTypes}
     {_types}
 }}";
         }
