@@ -26,14 +26,31 @@ asminfo.exe "C:\My App\MyLib.dll"
 
 This is a sample result of the tool:
 
-C:\>asminfo "C:\Windows\Microsoft.NET\Framework64\v4.0.30319\System.dll"<br/>
-CodeBase: file:///C:/Windows/Microsoft.Net/assembly/GAC_MSIL/System/v4.0_4.0.0.0__b77a5c561934e089/System.dll<br/>
+C:\>asminfo "C:\Users\Mansoor\Documents\Visual Studio 2015\Projects\MyWebApp\MyWebApp.Service\bin\Release\MyWebApp.Service.dll"<br/>
+CodeBase: file:///C:/Users/Mansoor/Documents/Visual Studio 2015/Projects/MyWebApp/MyWebApp.Service/bin/Release/MyWebApp.Service.dll<br/>
 ContentType: Default<br/>
-CultureInfo:<br/>
-CultureName:<br/>
-FullName: System, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089<br/>
-Name: System<br/>
-Version: 4.0.0.0<br/>
+CultureInfo: <br/>
+CultureName: <br/>
+FullName: MyWebApp.Service, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null<br/>
+Name: MyWebApp.Service<br/>
+Version: 1.0.0.0<br/>
 VersionCompatibility: SameMachine<br/>
+Naming: Strong<br/>
 <br/>
+Modules<br/>
+  MyWebApp.Service.dll<br/>
+<br/>
+Exported Types<br/>
+  IPhotoService<br/>
+  PhotoService<br/>
+<br/>
+Types<br/>
+  IPhotoService<br/>
+  PhotoService<br/>
+  <>c__DisplayClass1_0<br/>
+<br/>
+Referenced Assemblies<br/>
+  mscorlib<br/>
+  MyWebApp.Models<br/>
+  System.Xml<br/>
 C:\><br/>
