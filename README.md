@@ -11,14 +11,14 @@ Example (assuming the path of the tool is included in the PATH environment):
 
 invoking from the directory where the intended assembly resides:
 
-C:\MyApp\>asminfo MyLib.dll
-C:\MyApp\>asminfo MyLib
-C:\MyApp\>asminfo MyCompany.MyApp.MyLib.dll
-C:\MyApp\>asminfo MyCompany.MyApp.MyLib
+C:\MyApp\>asminfo MyLib.dll<br/>
+C:\MyApp\>asminfo MyLib<br/>
+C:\MyApp\>asminfo MyCompany.MyApp.MyLib.dll<br/>
+C:\MyApp\>asminfo MyCompany.MyApp.MyLib<br/>
 
 invoking from another directory:
 
-D:\>asminfo.exe C:\MyApp\Bin\MyLib.dll
+D:\>asminfo.exe C:\MyApp\Bin\MyLib.dll<br/>
 
 If your path contains space character, surround the argument with quote character.
 
