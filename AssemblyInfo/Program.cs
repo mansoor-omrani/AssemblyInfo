@@ -17,11 +17,12 @@ namespace AssemblyInfo
                 {
                     switches += args[i].ToLower().Replace('-', ' ').Trim();
                 }
-                var showModules = switches.Contains('m');
-                var showExportedTypes = switches.Contains('e');
-                var showTypes = switches.Contains('t');
-                var showReferencedAssemblies = switches.Contains('r');
-                var showInfo = switches.Contains('i') || string.IsNullOrEmpty(switches);
+                var showAll = switches.Contains('a');
+                var showModules = switches.Contains('m') || showAll;
+                var showExportedTypes = switches.Contains('e') || showAll;
+                var showTypes = switches.Contains('t') || showAll;
+                var showReferencedAssemblies = switches.Contains('r') || showAll;
+                var showInfo = switches.Contains('i') || string.IsNullOrEmpty(switches) || showAll;
 
                 try
                 {
@@ -107,6 +108,7 @@ namespace AssemblyInfo
             {
                 System.Console.WriteLine("Usage: asminfo.exe assembly [arg [arg] ...]");
                 System.Console.WriteLine("arg:");
+                System.Console.WriteLine("\t-a: Display all");
                 System.Console.WriteLine("\t-i: Display Assembly information");
                 System.Console.WriteLine("\t-m: Display Modules");
                 System.Console.WriteLine("\t-e: Display Exported Types");
