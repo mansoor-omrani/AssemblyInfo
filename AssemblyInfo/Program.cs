@@ -47,6 +47,15 @@ namespace AssemblyInfo
                 System.Console.WriteLine("Name: {0}", x.Name);
                 System.Console.WriteLine("Version: {0}", x.Version);
                 System.Console.WriteLine("VersionCompatibility: {0}", x.VersionCompatibility);
+
+                System.Console.WriteLine("Naming: {0}", (x.GetPublicKeyToken() == null)?"Weak":"Strong");
+
+                System.Console.WriteLine("\nModules");
+                var modules = asm.GetModules();
+                foreach (var module in modules)
+                {
+                    System.Console.WriteLine("  " + module.Name);
+                }
             }
             else
             {
