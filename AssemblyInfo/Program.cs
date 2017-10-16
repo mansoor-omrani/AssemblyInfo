@@ -65,7 +65,7 @@ namespace AssemblyInfo
                 }
                 
                 System.Console.WriteLine ("\nTypes");
-                var types = asm.GetTypes();
+                types = asm.GetTypes();
                 foreach (var type in types)
                 {
                     System.Console.WriteLine ("  " + type.Name);
