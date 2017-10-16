@@ -41,7 +41,7 @@ namespace AssemblyInfo
         }
         public string ToJson()
         {
-            var _types = string.Join(",", Types.ToArray());
+            var _types = (Types.Count > 0)? @"""Types"": [""" + string.Join("\",\"", Types.ToArray()) + "\"]":"";
 
             return
 $@"
@@ -55,7 +55,7 @@ $@"
     ""Version"": ""{Version}"",
     ""VersionCompatibility"": ""{VersionCompatibility}"",
     ""Naming"": ""{Naming}"",
-    ""Types"": {_types}
+    {_types}
 }}";
         }
     }
