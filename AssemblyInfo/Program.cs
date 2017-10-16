@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Linq;
 using System.Reflection;
 
 namespace AssemblyInfo
@@ -11,6 +12,16 @@ namespace AssemblyInfo
             {
                 Assembly asm = null;
                 var name = args[0];
+                var switches = "";
+                for (var i = 1; i < args.Length; i++)
+                {
+                    switches += args[i].ToLower().Replace('-', ' ').Trim();
+                }
+                var showModules = switches.Contains('m');
+                var showExportedTypes = switches.Contains('e');
+                var showTypes = switches.Contains('t');
+                var showReferencedAssemblies = switches.Contains('r');
+                var showInfo = switches.Contains('i') || string.IsNullOrEmpty(switches);
 
                 try
                 {
@@ -37,45 +48,59 @@ namespace AssemblyInfo
                     }
                 }
 
-                var x = asm.GetName();
+                if (showInfo)
+                {
+                    var x = asm.GetName();
 
-                System.Console.WriteLine("CodeBase: {0}", x.CodeBase);
-                System.Console.WriteLine("ContentType: {0}", x.ContentType);
-                System.Console.WriteLine("CultureInfo: {0}", x.CultureInfo);
-                System.Console.WriteLine("CultureName: {0}", x.CultureName);
-                System.Console.WriteLine("FullName: {0}", x.FullName);
-                System.Console.WriteLine("Name: {0}", x.Name);
-                System.Console.WriteLine("Version: {0}", x.Version);
-                System.Console.WriteLine("VersionCompatibility: {0}", x.VersionCompatibility);
-                
-                System.Console.WriteLine("Naming: {0}", (x.GetPublicKeyToken() == null)?"Weak":"Strong");
-
-                System.Console.WriteLine("\nModules");
-                var modules = asm.GetModules();
-                foreach (var module in modules)
-                {
-                    System.Console.WriteLine("  " + module.Name);
-                }
-                
-                System.Console.WriteLine ("\nExported Types");
-                var types = asm.GetExportedTypes();
-                foreach (var type in types)
-                {
-                    System.Console.WriteLine ("  " + type.Name);
-                }
-                
-                System.Console.WriteLine ("\nTypes");
-                types = asm.GetTypes();
-                foreach (var type in types)
-                {
-                    System.Console.WriteLine ("  " + type.Name);
+                    System.Console.WriteLine("CodeBase: {0}", x.CodeBase);
+                    System.Console.WriteLine("ContentType: {0}", x.ContentType);
+                    System.Console.WriteLine("CultureInfo: {0}", x.CultureInfo);
+                    System.Console.WriteLine("CultureName: {0}", x.CultureName);
+                    System.Console.WriteLine("FullName: {0}", x.FullName);
+                    System.Console.WriteLine("Name: {0}", x.Name);
+                    System.Console.WriteLine("Version: {0}", x.Version);
+                    System.Console.WriteLine("VersionCompatibility: {0}", x.VersionCompatibility);
+                    System.Console.WriteLine("Naming: {0}", (x.GetPublicKeyToken() == null) ? "Weak" : "Strong"); 
                 }
 
-                System.Console.WriteLine("\nReferenced Assemblies");
-                var names = asm.GetReferencedAssemblies();
-                foreach (var n in names)
+                if (showModules)
                 {
-                    System.Console.WriteLine("  " + n.Name);
+                    System.Console.WriteLine("\nModules");
+                    var modules = asm.GetModules();
+                    foreach (var module in modules)
+                    {
+                        System.Console.WriteLine("  " + module.Name);
+                    }
+                }
+
+                if (showExportedTypes)
+                {
+                    System.Console.WriteLine("\nExported Types");
+                    var types = asm.GetExportedTypes();
+                    foreach (var type in types)
+                    {
+                        System.Console.WriteLine("  " + type.Name);
+                    } 
+                }
+
+                if (showTypes)
+                {
+                    System.Console.WriteLine("\nTypes");
+                    var types = asm.GetTypes();
+                    foreach (var type in types)
+                    {
+                        System.Console.WriteLine("  " + type.Name);
+                    } 
+                }
+
+                if (showReferencedAssemblies)
+                {
+                    System.Console.WriteLine("\nReferenced Assemblies");
+                    var referencedAssemblies = asm.GetReferencedAssemblies();
+                    foreach (var a in referencedAssemblies)
+                    {
+                        System.Console.WriteLine("  " + a.Name);
+                    } 
                 }
             }
             else
