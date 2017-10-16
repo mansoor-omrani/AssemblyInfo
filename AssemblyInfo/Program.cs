@@ -3,9 +3,9 @@ using System.Reflection;
 
 namespace AssemblyInfo
 {
-    class Program
+    public class Program
     {
-        static void Main(string[] args)
+        public static void Main(string[] args)
         {
             if (args != null && args.Length > 0)
             {
