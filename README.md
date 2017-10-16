@@ -17,14 +17,14 @@ asminfo.exe "C:\My App\MyLib.dll"
 
 This is a sample result of the tool:
 
-C:\>asminfo "C:\Windows\Microsoft.NET\Framework64\v4.0.30319\System.dll"
-CodeBase: file:///C:/Windows/Microsoft.Net/assembly/GAC_MSIL/System/v4.0_4.0.0.0__b77a5c561934e089/System.dll
-ContentType: Default
-CultureInfo:
-CultureName:
-FullName: System, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089
-Name: System
-Version: 4.0.0.0
-VersionCompatibility: SameMachine
-
-C:\>
+C:\>asminfo "C:\Windows\Microsoft.NET\Framework64\v4.0.30319\System.dll"<br/>
+CodeBase: file:///C:/Windows/Microsoft.Net/assembly/GAC_MSIL/System/v4.0_4.0.0.0__b77a5c561934e089/System.dll<br/>
+ContentType: Default<br/>
+CultureInfo:<br/>
+CultureName:<br/>
+FullName: System, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089<br/>
+Name: System<br/>
+Version: 4.0.0.0<br/>
+VersionCompatibility: SameMachine<br/>
+<br/>
+C:\><br/>
