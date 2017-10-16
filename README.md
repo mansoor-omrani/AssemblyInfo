@@ -7,9 +7,18 @@ Usage:
 You can specify just the name of the assembly. The tool tries to load it from the current directory (where it is invoked from). If the assembly resides in another directory, you need to specify its path as well.
 The tool assumes assemblies are ended with ".dll" by defualt. So, you can ommit ".dll" from the name of the assembly.
 
-Example:
+Example (assuming the path of the tool is included in the PATH environment):
 
-asminfo.exe C:\MyApp\Bin\MyLib.dll
+invoking from the directory where the intended assembly resides:
+
+C:\MyApp\>asminfo MyLib.dll
+C:\MyApp\>asminfo MyLib
+C:\MyApp\>asminfo MyCompany.MyApp.MyLib.dll
+C:\MyApp\>asminfo MyCompany.MyApp.MyLib
+
+invoking from another directory:
+
+D:\>asminfo.exe C:\MyApp\Bin\MyLib.dll
 
 If your path contains space character, surround the argument with quote character.
 
