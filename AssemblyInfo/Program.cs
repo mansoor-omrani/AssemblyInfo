@@ -105,7 +105,15 @@ namespace AssemblyInfo
             }
             else
             {
-                System.Console.WriteLine("Usage: asminfo.exe assembly");
+                System.Console.WriteLine("Usage: asminfo.exe assembly [arg [arg] ...]");
+                System.Console.WriteLine("arg:");
+                System.Console.WriteLine("\t-i: Display Assembly information");
+                System.Console.WriteLine("\t-m: Display Modules");
+                System.Console.WriteLine("\t-e: Display Exported Types");
+                System.Console.WriteLine("\t-t: Display Types");
+                System.Console.WriteLine("\t-r: Display Referenced Assemblies\n");
+                System.Console.WriteLine("Arguments can be merged together");
+                System.Console.WriteLine("Example:\nasminfo.exe MyLib.dll -imt");
             }
         }
     }
