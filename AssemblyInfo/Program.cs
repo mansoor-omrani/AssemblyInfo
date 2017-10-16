@@ -26,6 +26,7 @@ namespace AssemblyInfo
                 var showReferencedAssemblies = switches.Contains('r') || showAll;
                 var showInfo = switches.Contains('i') || string.IsNullOrEmpty(switches) || showAll;
                 var toJson = switches.Contains('j');
+                var result = new AssemblyInfoResult();
 
                 try
                 {
@@ -55,6 +56,16 @@ namespace AssemblyInfo
                 if (showInfo)
                 {
                     var x = asm.GetName();
+
+                    result.CodeBase = x.CodeBase;
+                    result.ContentType = x.ContentType.ToString();
+                    result.CultureInfo = x.CultureInfo.ToString();
+                    result.CultureName = x.CultureName;
+                    result.FullName = x.FullName;
+                    result.Name = x.Name;
+                    result.Version = x.Version.ToString();
+                    result.VersionCompatibility = x.VersionCompatibility.ToString();
+                    result.Naming = (x.GetPublicKeyToken() == null) ? "Weak" : "Strong";
 
                     System.Console.WriteLine("CodeBase: {0}", x.CodeBase);
                     System.Console.WriteLine("ContentType: {0}", x.ContentType);
