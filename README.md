@@ -38,19 +38,19 @@ VersionCompatibility: SameMachine<br/>
 Naming: Strong<br/>
 <br/>
 Modules<br/>
-  MyWebApp.Service.dll<br/>
+&nbsp;&nbsp;&nbsp;&nbsp;MyWebApp.Service.dll<br/>
 <br/>
 Exported Types<br/>
-  IPhotoService<br/>
-  PhotoService<br/>
+&nbsp;&nbsp;&nbsp;&nbsp;IPhotoService<br/>
+&nbsp;&nbsp;&nbsp;&nbsp;PhotoService<br/>
 <br/>
 Types<br/>
-  IPhotoService<br/>
-  PhotoService<br/>
-  <>c__DisplayClass1_0<br/>
+&nbsp;&nbsp;&nbsp;&nbsp;IPhotoService<br/>
+&nbsp;&nbsp;&nbsp;&nbsp;PhotoService<br/>
+&nbsp;&nbsp;&nbsp;&nbsp;<>c__DisplayClass1_0<br/>
 <br/>
 Referenced Assemblies<br/>
-  mscorlib<br/>
-  MyWebApp.Models<br/>
-  System.Xml<br/>
+&nbsp;&nbsp;&nbsp;&nbsp;mscorlib<br/>
+&nbsp;&nbsp;&nbsp;&nbsp;MyWebApp.Models<br/>
+&nbsp;&nbsp;&nbsp;&nbsp;System.Xml<br/>
 C:\><br/>
