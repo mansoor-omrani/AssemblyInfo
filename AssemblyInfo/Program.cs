@@ -47,6 +47,14 @@ namespace AssemblyInfo
                 System.Console.WriteLine("Name: {0}", x.Name);
                 System.Console.WriteLine("Version: {0}", x.Version);
                 System.Console.WriteLine("VersionCompatibility: {0}", x.VersionCompatibility);
+                
+                // List the types exported from the assembly
+                System.Console.WriteLine ("\nExported Types");
+                var types = asm.GetExportedTypes();
+                foreach (var type in types)
+                {
+                    System.Console.WriteLine ("  " + type.Name);
+                }
             }
             else
             {
