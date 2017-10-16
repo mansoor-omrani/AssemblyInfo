@@ -66,7 +66,7 @@ namespace AssemblyInfo
                 if (showModules)
                 {
                     System.Console.WriteLine("\nModules");
-                    var modules = asm.GetModules();
+                    var modules = asm.GetModules().OrderBy(m => m.Name);
                     foreach (var module in modules)
                     {
                         System.Console.WriteLine("  " + module.Name);
@@ -76,7 +76,7 @@ namespace AssemblyInfo
                 if (showExportedTypes)
                 {
                     System.Console.WriteLine("\nExported Types");
-                    var types = asm.GetExportedTypes();
+                    var types = asm.GetExportedTypes().OrderBy(t => t.Name);
                     foreach (var type in types)
                     {
                         System.Console.WriteLine("  " + type.Name);
@@ -86,7 +86,7 @@ namespace AssemblyInfo
                 if (showTypes)
                 {
                     System.Console.WriteLine("\nTypes");
-                    var types = asm.GetTypes();
+                    var types = asm.GetTypes().OrderBy(t => t.Name);
                     foreach (var type in types)
                     {
                         System.Console.WriteLine("  " + type.Name);
