@@ -17,7 +17,17 @@ namespace AssemblyInfo
         public string Version { get; set; }
         public string VersionCompatibility { get; set; }
         public string Naming { get; set; }
-
+        private List<string> exportedTypes;
+        public List<string> ExportedTypes
+        {
+            get
+            {
+                if (exportedTypes == null)
+                    exportedTypes = new List<string>();
+                
+                return exportedTypes;
+            }
+        }
         public string ToJson()
         {
             return
