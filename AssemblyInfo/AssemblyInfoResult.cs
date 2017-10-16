@@ -17,9 +17,22 @@ namespace AssemblyInfo
         public string Version { get; set; }
         public string VersionCompatibility { get; set; }
         public string Naming { get; set; }
+        private List<string> types;
 
+        public List<string> Types
+        {
+            get
+            {
+                if (types == null)
+                    types = new List<string>();
+
+                return types;
+            }
+        }
         public string ToJson()
         {
+            var _types = string.Join(",", Types.ToArray());
+
             return
 $@"
 {{
@@ -32,6 +45,7 @@ $@"
     ""Version"": ""{Version}"",
     ""VersionCompatibility"": ""{VersionCompatibility}"",
     ""Naming"": ""{Naming}"",
+    ""Types"": {_types}
 }}
 ";
         }
