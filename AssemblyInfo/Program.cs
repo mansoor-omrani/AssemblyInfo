@@ -125,15 +125,20 @@ namespace AssemblyInfo
 
                 if (generateOutput)
                 {
-                    var filename = AppDomain.CurrentDomain.BaseDirectory + "\\" + x.Name + ".json";
+                    if (toJson)
+                    {
+                        var filename = AppDomain.CurrentDomain.BaseDirectory + "\\" + x.Name + ".json";
 
-                    try
-                    {
-                        File.WriteAllText(filename, result.ToJson());
-                    }
-                    catch
-                    {
-                        System.Console.WriteLine("Creating output failed");
+                        try
+                        {
+                            File.WriteAllText(filename, result.ToJson());
+                            System.Console.WriteLine("json output created");
+                        }
+                        catch (Exception e)
+                        {
+                            System.Console.WriteLine("Creating output failed");
+                            System.Console.WriteLine(e.Message);
+                        }
                     }
                 }
             }
