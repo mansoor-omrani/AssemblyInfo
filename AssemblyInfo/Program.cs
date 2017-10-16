@@ -1,4 +1,5 @@
 ﻿using System;
+using System.IO;
 using System.Linq;
 using System.Reflection;
 
@@ -54,10 +55,10 @@ namespace AssemblyInfo
                     }
                 }
 
+                var x = asm.GetName();
+
                 if (showInfo)
                 {
-                    var x = asm.GetName();
-
                     if (generateOutput)
                     {
                         result.CodeBase = x.CodeBase;
@@ -124,7 +125,16 @@ namespace AssemblyInfo
 
                 if (generateOutput)
                 {
-                    
+                    var filename = AppDomain.CurrentDomain.BaseDirectory + "\\" + x.Name + ".json";
+
+                    try
+                    {
+                        File.WriteAllText(filename, result.ToJson());
+                    }
+                    catch
+                    {
+                        System.Console.WriteLine("Creating output failed");
+                    }
                 }
             }
             else

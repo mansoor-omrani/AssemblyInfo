@@ -20,7 +20,20 @@ namespace AssemblyInfo
 
         public string ToJson()
         {
-            return "{}";
+            return
+$@"
+{{
+    ""CodeBase"": ""{CodeBase}"",
+    ""ContentType"": ""{ContentType}"",
+    ""CultureInfo"": ""{CultureInfo}"",
+    ""CultureName"": ""{CultureName}"",
+    ""FullName"": ""{FullName}"",
+    ""Name"": ""{Name}"",
+    ""Version"": ""{Version}"",
+    ""VersionCompatibility"": ""{VersionCompatibility}"",
+    ""Naming"": ""{Naming}"",
+}}
+";
         }
     }
 }
