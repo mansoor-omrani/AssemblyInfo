@@ -15,7 +15,9 @@ namespace AssemblyInfo
                 try
                 {
                     if (name.Substring(name.Length - 4, 4) != ".dll")
+                    {
                         name += ".dll";
+                    }
 
                     asm = Assembly.LoadFrom(name);
                 }
