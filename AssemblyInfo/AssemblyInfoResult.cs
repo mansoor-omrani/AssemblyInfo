@@ -41,6 +41,7 @@ namespace AssemblyInfo
         }
         public string ToJson()
         {
+            var _exportedTypes = string.Join(",", ExportedTypes.ToArray());
             var _types = string.Join(",", Types.ToArray());
 
             return
@@ -55,7 +56,8 @@ $@"
     ""Version"": ""{Version}"",
     ""VersionCompatibility"": ""{VersionCompatibility}"",
     ""Naming"": ""{Naming}"",
-    ""Types"": {_types}
+    ""Types"": {_types},
+    ""ExportedTypes"": {_exportedTypes}
 }}";
         }
     }
