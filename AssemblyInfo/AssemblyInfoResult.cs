@@ -29,7 +29,6 @@ namespace AssemblyInfo
             }
         }
         private List<string> types;
-
         public List<string> Types
         {
             get
@@ -57,8 +56,7 @@ $@"
     ""VersionCompatibility"": ""{VersionCompatibility}"",
     ""Naming"": ""{Naming}"",
     ""Types"": {_types}
-}}
-";
+}}";
         }
     }
 }
