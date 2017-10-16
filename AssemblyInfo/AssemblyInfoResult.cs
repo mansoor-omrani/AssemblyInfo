@@ -17,5 +17,10 @@ namespace AssemblyInfo
         public string Version { get; set; }
         public string VersionCompatibility { get; set; }
         public string Naming { get; set; }
+
+        public string ToJson()
+        {
+            return "{}";
+        }
     }
 }
