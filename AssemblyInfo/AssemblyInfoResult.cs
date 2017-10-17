@@ -73,6 +73,7 @@ namespace AssemblyInfo
             var _modules = (Modules.Count > 0)? @"\n\t""Modules"": [""" + string.Join("\",\"", Modules.ToArray()) + "\"],":"";
             var _types = (Types.Count > 0)? @"\n\t""Types"": [""" + string.Join("\",\"", Types.ToArray()) + "\"],":"";
             var _exportedTypes = (ExportedTypes.Count > 0) ? @"\n\t""ExportedTypes"": [""" + string.Join("\",\"", ExportedTypes.ToArray()) + "\"]," : "";
+            var _referencedAssemblies = (ReferencedAssemblies.Count > 0) ? @"\n\t""ReferencedAssemblies"": [""" + string.Join("\",\"", ReferencedAssemblies.ToArray()) + "\"]," : "";
 
             return
 $@"
@@ -85,7 +86,7 @@ $@"
     ""Name"": ""{Name}"",
     ""Version"": ""{Version}"",
     ""VersionCompatibility"": ""{VersionCompatibility}"",
-    ""Naming"": ""{Naming}"",{_modules}{_exportedTypes}{_types}
+    ""Naming"": ""{Naming}"",{_modules}{_exportedTypes}{_types}{_referencedAssemblies}
 }}";
         }
 
