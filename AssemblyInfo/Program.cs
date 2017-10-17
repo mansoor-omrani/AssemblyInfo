@@ -124,6 +124,8 @@ namespace AssemblyInfo
                 {
                     System.Console.WriteLine("\nReferenced Assemblies");
                     var referencedAssemblies = asm.GetReferencedAssemblies().OrderBy(n => n.Name);
+                    result.ReferencedAssemblies = types.Select(t => t.Name).ToList();
+                    
                     foreach (var a in referencedAssemblies)
                     {
                         System.Console.WriteLine("  " + a.Name);
