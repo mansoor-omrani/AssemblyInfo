@@ -56,6 +56,18 @@ namespace AssemblyInfo
             }
             set { types = value; }
         }
+        private List<string> referencedAssemblies;
+        public List<string> ReferencedAssemblies
+        {
+            get
+            {
+                if (referencedAssemblies == null)
+                    referencedAssemblies = new List<string>();
+
+                return referencedAssemblies;
+            }
+            set { referencedAssemblies = value; }
+        }
         public string ToJson()
         {
             var _modules = (Modules.Count > 0)? @"\n\t""Modules"": [""" + string.Join("\",\"", Modules.ToArray()) + "\"],":"";

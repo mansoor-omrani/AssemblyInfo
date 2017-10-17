@@ -88,6 +88,8 @@ namespace AssemblyInfo
                 {
                     System.Console.WriteLine("\nModules");
                     var modules = asm.GetModules().OrderBy(m => m.Name);
+                    result.Modules = modules.Select(t => t.Name).ToList();
+
                     foreach (var module in modules)
                     {
                         System.Console.WriteLine("  " + module.Name);
