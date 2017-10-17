@@ -27,6 +27,7 @@ namespace AssemblyInfo
                 var showReferencedAssemblies = switches.Contains('r') || showAll;
                 var showInfo = switches.Contains('i') || string.IsNullOrEmpty(switches) || showAll;
                 var toJson = switches.Contains('j');
+                var toXml = switches.Contains('x');
                 var generateOutput = switches.Contains('o');
                 var result = new AssemblyInfoResult();
 
@@ -97,6 +98,8 @@ namespace AssemblyInfo
                 {
                     System.Console.WriteLine("\nExported Types");
                     var types = asm.GetExportedTypes().OrderBy(t => t.Name);
+                    result.ExportedTypes = types.Select(t => t.Name).ToList();
+
                     foreach (var type in types)
                     {
                         System.Console.WriteLine("  " + type.Name);
@@ -107,6 +110,8 @@ namespace AssemblyInfo
                 {
                     System.Console.WriteLine("\nTypes");
                     var types = asm.GetTypes().OrderBy(t => t.Name);
+                    result.Types = types.Select(t => t.Name).ToList();
+
                     foreach (var type in types)
                     {
                         System.Console.WriteLine("  " + type.Name);
@@ -125,13 +130,29 @@ namespace AssemblyInfo
 
                 if (generateOutput)
                 {
+                    var filename = System.Environment.CurrentDirectory + "\\" + x.Name;
+                    var output = "";
+
                     if (toJson)
                     {
-                        var filename = AppDomain.CurrentDomain.BaseDirectory + "\\" + x.Name + ".json";
+                        filename += ".json";
+                        output = result.ToJson();
+                    }
+                    else if (toXml)
+                    {
+                        filename += ".xml";
+                        output = result.ToXml();
+                    }
+                    else
+                    {
+                        System.Console.WriteLine("No output format specified. Use -j or -x to specify Json or Xml format respectively");
+                    }
 
+                    if (!string.IsNullOrEmpty(output))
+                    {
                         try
                         {
-                            File.WriteAllText(filename, result.ToJson());
+                            File.WriteAllText(filename, output);
                             System.Console.WriteLine("json output created");
                         }
                         catch (Exception e)
@@ -152,7 +173,9 @@ namespace AssemblyInfo
                 System.Console.WriteLine("\t-e: Display Exported Types");
                 System.Console.WriteLine("\t-t: Display Types");
                 System.Console.WriteLine("\t-r: Display Referenced Assemblies\n");
-                System.Console.WriteLine("\t-j: Display in JSON format\n");
+                System.Console.WriteLine("\t-o: Create output file\n");
+                System.Console.WriteLine("\t-j: Use JSON for ourput file\n");
+                System.Console.WriteLine("\t-x: Use XML for ourput file\n");
                 System.Console.WriteLine("Arguments can be merged together");
                 System.Console.WriteLine("Example:\nasminfo.exe MyLib.dll -imt");
             }

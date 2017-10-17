@@ -1,8 +1,11 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.IO;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using System.Xml;
+using System.Xml.Serialization;
 
 namespace AssemblyInfo
 {
@@ -27,6 +30,7 @@ namespace AssemblyInfo
                 
                 return exportedTypes;
             }
+            set { exportedTypes = value; }
         }
         private List<string> types;
         public List<string> Types
@@ -38,6 +42,7 @@ namespace AssemblyInfo
 
                 return types;
             }
+            set { types = value; }
         }
         public string ToJson()
         {
@@ -59,6 +64,23 @@ $@"
     {_exportedTypes}
     {_types}
 }}";
+        }
+
+        public string ToXml()
+        {
+            var xsSubmit = new XmlSerializer(this.GetType());
+            var result = "";
+
+            using (var sw = new StringWriter())
+            {
+                using (XmlWriter writer = XmlWriter.Create(sw))
+                {
+                    xsSubmit.Serialize(writer, this);
+                    result = sw.ToString();
+                }
+            }
+
+            return result;
         }
     }
 }
