@@ -70,10 +70,10 @@ namespace AssemblyInfo
         }
         public string ToJson()
         {
-            var _modules = (Modules.Count > 0)? "\n\t,\"Modules\": [\"" + string.Join("\",\"", Modules.ToArray()) + "\"],":"";
-            var _types = (Types.Count > 0)? "\n\t,\"Types\": [\"" + string.Join("\",\"", Types.ToArray()) + "\"],":"";
-            var _exportedTypes = (ExportedTypes.Count > 0) ? "\n\t,\"ExportedTypes\": [\"" + string.Join("\",\"", ExportedTypes.ToArray()) + "\"]," : "";
-            var _referencedAssemblies = (ReferencedAssemblies.Count > 0) ? "\n\t,\"ReferencedAssemblies\": [\"" + string.Join("\",\"", ReferencedAssemblies.ToArray()) + "\"]," : "";
+            var _modules = (Modules.Count > 0)? "\n\t,\"Modules\": [\"" + string.Join("\",\"", Modules.ToArray()) + "\"]":"";
+            var _types = (Types.Count > 0)? "\n\t,\"Types\": [\"" + string.Join("\",\"", Types.ToArray()) + "\"]":"";
+            var _exportedTypes = (ExportedTypes.Count > 0) ? "\n\t,\"ExportedTypes\": [\"" + string.Join("\",\"", ExportedTypes.ToArray()) + "\"]" : "";
+            var _referencedAssemblies = (ReferencedAssemblies.Count > 0) ? "\n\t,\"ReferencedAssemblies\": [\"" + string.Join("\",\"", ReferencedAssemblies.ToArray()) + "\"]" : "";
 
             return
 $@"
