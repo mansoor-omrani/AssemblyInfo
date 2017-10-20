@@ -44,7 +44,7 @@ namespace AssemblyInfo
                 {
                     try
                     {
-                        var path = AppDomain.CurrentDomain.BaseDirectory + @"\" + name;
+                        var path = AppDomain.CurrentDomain.BaseDirectory + "\\" + name;
 
                         asm = Assembly.LoadFrom(path);
                     }
@@ -92,7 +92,7 @@ namespace AssemblyInfo
 
                     foreach (var module in modules)
                     {
-                        System.Console.WriteLine("  " + module.Name);
+                        System.Console.WriteLine("  {0}", module.Name);
                     }
                 }
 
@@ -104,7 +104,7 @@ namespace AssemblyInfo
 
                     foreach (var type in types)
                     {
-                        System.Console.WriteLine("  " + type.Name);
+                        System.Console.WriteLine("  {0}", type.Name);
                     } 
                 }
 
@@ -116,7 +116,7 @@ namespace AssemblyInfo
 
                     foreach (var type in types)
                     {
-                        System.Console.WriteLine("  " + type.Name);
+                        System.Console.WriteLine("  {0}", type.Name);
                     } 
                 }
 
@@ -128,7 +128,7 @@ namespace AssemblyInfo
                     
                     foreach (var a in referencedAssemblies)
                     {
-                        System.Console.WriteLine("  " + a.Name);
+                        System.Console.WriteLine("  {0}", a.Name);
                     } 
                 }
 
