@@ -1,8 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.IO;
-using System.Linq;
-using System.Text;
 using System.Xml;
 using System.Xml.Serialization;
 
@@ -69,7 +67,9 @@ namespace AssemblyInfo
         }
         private string ToJsonProperty(List<string> list, string name)
         {
-            return (list.Count > 0)? "\n\t,\"" + name + "\": [\"" + string.Join("\",\"", list.ToArray()) + "\"]" : "";
+            var x = string.Join(@""",""", list.ToArray());
+
+            return (list.Count > 0)? $@",\n\t""{name}"": [""{x}""]" : "";
         }
         public string ToJson()
         {
@@ -79,8 +79,7 @@ namespace AssemblyInfo
             var _referencedAssemblies = ToJsonProperty(ReferencedAssemblies, "Types");
             
             return
-$@"
-{{
+$@"{{
     ""CodeBase"": ""{CodeBase}"",
     ""ContentType"": ""{ContentType}"",
     ""CultureInfo"": ""{CultureInfo}"",
