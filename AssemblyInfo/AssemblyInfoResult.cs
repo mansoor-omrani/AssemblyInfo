@@ -68,13 +68,17 @@ namespace AssemblyInfo
             }
             set { referencedAssemblies = value; }
         }
+        private string ToJsonProperty(List<string> list, string name)
+        {
+            return (list.Count > 0)? "\n\t,\"" + name + "\": [\"" + string.Join("\",\"", list.ToArray()) + "\"]" : "";
+        }
         public string ToJson()
         {
-            var _modules = (Modules.Count > 0)? "\n\t,\"Modules\": [\"" + string.Join("\",\"", Modules.ToArray()) + "\"]":"";
-            var _types = (Types.Count > 0)? "\n\t,\"Types\": [\"" + string.Join("\",\"", Types.ToArray()) + "\"]":"";
-            var _exportedTypes = (ExportedTypes.Count > 0) ? "\n\t,\"ExportedTypes\": [\"" + string.Join("\",\"", ExportedTypes.ToArray()) + "\"]" : "";
-            var _referencedAssemblies = (ReferencedAssemblies.Count > 0) ? "\n\t,\"ReferencedAssemblies\": [\"" + string.Join("\",\"", ReferencedAssemblies.ToArray()) + "\"]" : "";
-
+            var _modules = ToJsonProperty(Modules, "Modules");
+            var _types = ToJsonProperty(Types, "Types");
+            var _exportedTypes = ToJsonProperty(ExportedTypes, "Types");
+            var _referencedAssemblies = ToJsonProperty(ReferencedAssemblies, "Types");
+            
             return
 $@"
 {{
