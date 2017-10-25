@@ -1,20 +1,20 @@
 # AssemblyInfo
 This tiny console application shows properties of an assembly that it recieves its name as a command line argument.
 ```
-> asminfo.exe assemblyNameOrPath [arg [arg] ...]<br/>
-arg:<br/>
-        -a: Display all<br/>
-        -i: Display Assembly information<br/>
-        -m: Display Modules<br/>
-        -e: Display Exported Types<br/>
-        -t: Display Types<br/>
-        -r: Display Referenced Assemblies<br/>
-        -o: Create output file<br/>
-        -j: Use JSON for ourput file<br/>
-        -x: Use XML for ourput file<br/>
-Arguments can be merged together<br/>
-Example:<br/>
-asminfo.exe MyLib.dll -imt<br/>
+> asminfo.exe assemblyNameOrPath [arg [arg] ...]
+arg:
+        -a: Display all
+        -i: Display Assembly information
+        -m: Display Modules
+        -e: Display Exported Types
+        -t: Display Types
+        -r: Display Referenced Assemblies
+        -o: Create output file
+        -j: Use JSON for ourput file
+        -x: Use XML for ourput file
+Arguments can be merged together
+Example:
+asminfo.exe MyLib.dll -imt
 ```
 You can specify just the name of the assembly. The tool tries to load it from the current directory (where it is invoked from). If the assembly resides in another directory, you need to specify its path as well.
 The tool assumes assemblies are ended with ".dll" by defualt. So, you can ommit ".dll" from the name of the assembly.
@@ -23,14 +23,14 @@ Example (assuming the path of the tool is included in the PATH environment):
 
 invoking from the directory where the intended assembly resides:
 ```
-C:\MyApp\>asminfo MyLib.dll<br/>
-C:\MyApp\>asminfo MyLib<br/>
-C:\MyApp\>asminfo MyCompany.MyApp.MyLib.dll<br/>
-C:\MyApp\>asminfo MyCompany.MyApp.MyLib<br/>
+C:\MyApp\>asminfo MyLib.dll
+C:\MyApp\>asminfo MyLib
+C:\MyApp\>asminfo MyCompany.MyApp.MyLib.dll
+C:\MyApp\>asminfo MyCompany.MyApp.MyLib
 ```
 invoking from another directory:
 ```
-D:\>asminfo.exe C:\MyApp\Bin\MyLib.dll<br/>
+D:\>asminfo.exe C:\MyApp\Bin\MyLib.dll
 ```
 If your path contains space character, surround the argument with quote character.
 ```
