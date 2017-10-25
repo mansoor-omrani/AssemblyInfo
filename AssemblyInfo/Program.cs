@@ -176,10 +176,10 @@ namespace AssemblyInfo
                 System.Console.WriteLine("\t-m: Display Modules");
                 System.Console.WriteLine("\t-e: Display Exported Types");
                 System.Console.WriteLine("\t-t: Display Types");
-                System.Console.WriteLine("\t-r: Display Referenced Assemblies\n");
-                System.Console.WriteLine("\t-o: Create output file\n");
-                System.Console.WriteLine("\t-j: Use JSON for ourput file\n");
-                System.Console.WriteLine("\t-x: Use XML for ourput file\n");
+                System.Console.WriteLine("\t-r: Display Referenced Assemblies");
+                System.Console.WriteLine("\t-o: Create output file");
+                System.Console.WriteLine("\t-j: Use JSON for ourput file");
+                System.Console.WriteLine("\t-x: Use XML for ourput file");
                 System.Console.WriteLine("Arguments can be merged together");
                 System.Console.WriteLine("Example:\nasminfo.exe MyLib.dll -imt");
             }
