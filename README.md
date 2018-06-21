@@ -9,6 +9,7 @@ arg:
         -e: Display Exported Types
         -t: Display Types
         -r: Display Referenced Assemblies
+        -s: Display resources
         -o: Create output file
         -j: Use JSON for ourput file
         -x: Use XML for ourput file
