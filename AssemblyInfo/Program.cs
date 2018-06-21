@@ -25,6 +25,7 @@ namespace AssemblyInfo
                 var showExportedTypes = switches.Contains('e') || showAll;
                 var showTypes = switches.Contains('t') || showAll;
                 var showReferencedAssemblies = switches.Contains('r') || showAll;
+                var showResources = switches.Contains('s') || showAll;
                 var showInfo = switches.Contains('i') || string.IsNullOrEmpty(switches) || showAll;
                 var toJson = switches.Contains('j');
                 var toXml = switches.Contains('x');
@@ -132,6 +133,25 @@ namespace AssemblyInfo
                     } 
                 }
 
+                if (showResources)
+                {
+                    var resourceNames = asm.GetManifestResourceNames().OrderBy(r => r).ToArray();
+
+                    if (resourceNames != null && resourceNames.Length > 0)
+                    {
+                        System.Console.WriteLine("\nResoureces");
+
+                        foreach (var r in resourceNames)
+                        {
+                            System.Console.WriteLine("  {0}", r);
+                        }
+                    }
+                    else
+                    {
+                        System.Console.WriteLine("\nNo resource found in the assembly.");
+                    }
+                }
+
                 if (generateOutput)
                 {
                     var filename = System.Environment.CurrentDirectory + "\\" + x.Name;
@@ -177,6 +197,7 @@ namespace AssemblyInfo
                 System.Console.WriteLine("\t-e: Display Exported Types");
                 System.Console.WriteLine("\t-t: Display Types");
                 System.Console.WriteLine("\t-r: Display Referenced Assemblies");
+                System.Console.WriteLine("\t-s: Display Resources");
                 System.Console.WriteLine("\t-o: Create output file");
                 System.Console.WriteLine("\t-j: Use JSON for ourput file");
                 System.Console.WriteLine("\t-x: Use XML for ourput file");
